@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "270202455719",
+    "project_id": "vstock-207cf",
+    "storage_bucket": "vstock-207cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270202455719:android:44a17da84dbf60be6bbd82",
+        "android_client_info": {
+          "package_name": "com.example.vstock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270202455719-njs2p9ggeehs85hku1pqam643jcnl8r4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vstock",
+            "certificate_hash": "6c51439ab1674fe1b27ef4e3e613597473688c54"
+          }
+        },
+        {
+          "client_id": "270202455719-d7jajjr9f3f1hknq4273394s7sr9hl0d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-S6mo4nMO-9-Z0dFGbibPnmjNWfXxGoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270202455719-d7jajjr9f3f1hknq4273394s7sr9hl0d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "270202455719-4mdlm9e0g75q5endenqt9h07tp1l2tk2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vstock.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
