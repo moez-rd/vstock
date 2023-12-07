@@ -1,5 +1,5 @@
-import 'package:equatable/equatable.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:equatable/equatable.dart';
 
 enum UserRole { owner, staff }
 
@@ -34,10 +34,10 @@ class User extends Equatable {
 
   Map<String, dynamic> toFirestore() {
     return {
-      if (name != null) "": name,
-      if (email != null) "": email,
-      if (role != null) "": role.toString(),
-      if (enterpriseId != null) "": enterpriseId,
+      if (name != null) "name": name,
+      if (email != null) "email": email,
+      if (role != null) "role": role.toString().split(".")[1],
+      if (enterpriseId != null) "enterprise_id": enterpriseId,
     };
   }
 }
