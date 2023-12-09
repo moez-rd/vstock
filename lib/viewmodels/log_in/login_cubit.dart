@@ -1,5 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:vstock/common/exceptions/firebase_exception.dart';
 import 'package:vstock/common/form_inputs/email.dart';
@@ -69,5 +69,14 @@ class LoginCubit extends Cubit<LoginState> {
     } catch (_) {
       emit(state.copyWith(status: FormzSubmissionStatus.failure));
     }
+  }
+
+  void clearErrorMessage() {
+    emit(
+      state.copyWith(
+        errorMessage: null,
+      ),
+    );
+    print("HEEL${state.errorMessage}");
   }
 }

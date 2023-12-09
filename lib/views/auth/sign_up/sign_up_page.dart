@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vstock/config/dependencies.dart';
+import 'package:vstock/repositories/authentication_repository.dart';
 import 'package:vstock/viewmodels/sign_up/sign_up_cubit.dart';
 import 'package:vstock/views/auth/sign_up/sign_up_form.dart';
 
@@ -18,7 +19,7 @@ class SignUpPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: BlocProvider<SignUpCubit>(
-          create: (_) => getIt<SignUpCubit>(),
+          create: (_) => SignUpCubit(getIt<AuthenticationRepository>()),
           child: const SignUpForm(),
         ),
       ),

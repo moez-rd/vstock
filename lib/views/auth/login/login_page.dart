@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vstock/config/dependencies.dart';
+import 'package:vstock/repositories/authentication_repository.dart';
 import 'package:vstock/viewmodels/log_in/login_cubit.dart';
 import 'package:vstock/views/auth/login/login_form.dart';
 
@@ -16,7 +17,7 @@ class LoginPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: BlocProvider(
-          create: (_) => getIt<LoginCubit>(),
+          create: (_) => LoginCubit(getIt<AuthenticationRepository>()),
           child: const LoginForm(),
         ),
       ),

@@ -10,15 +10,34 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
-      listener: (context, state) {
-        if (state.status.isFailure) {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(
-                content: Text(state.errorMessage ?? 'Authentication Failure'),
-              ),
-            );
+      listenWhen: (previous, current) => previous.status != current.status,
+      listener: (ctx, state) {
+        if (state.status.isFailure &&
+            (state.errorMessage != null || state.errorMessage != "")) {
+          // ScaffoldMessenger.of(context)
+          //   ..hideCurrentSnackBar()
+          //   ..showSnackBar(
+          //     SnackBar(
+          //       content: Text("Email atau password salah"),
+          //     ),
+          //   );
+
+          showDialog<String>(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              title: const Text('Kesalahan'),
+              content: Text("Email atau password salah"),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    ctx.read<LoginCubit>().clearErrorMessage();
+                    Navigator.pop(context, 'OK');
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
+            ),
+          );
         }
       },
       child: Align(
@@ -33,8 +52,8 @@ class LoginForm extends StatelessWidget {
               _PasswordInput(),
               const SizedBox(height: 8),
               _LoginButton(),
-              const SizedBox(height: 8),
-              _GoogleLoginButton(),
+              // const SizedBox(height: 8),
+              // _GoogleLoginButton(),
               const SizedBox(height: 4),
               _SignUpButton(),
             ],

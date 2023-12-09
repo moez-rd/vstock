@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:vstock/common/cache/cache.dart';
@@ -52,6 +53,7 @@ class AuthenticationRepository {
       );
 
       await userCredential.user?.updateDisplayName(name);
+      logOut();
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw SignUpWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {

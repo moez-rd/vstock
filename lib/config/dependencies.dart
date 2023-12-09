@@ -6,6 +6,7 @@ import 'package:vstock/repositories/product_repository.dart';
 import 'package:vstock/viewmodels/app/app_bloc.dart';
 import 'package:vstock/viewmodels/log_in/login_cubit.dart';
 import 'package:vstock/viewmodels/sign_up/sign_up_cubit.dart';
+import 'package:vstock/views/stock/stock_overview/bloc/stock_overview_bloc.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -29,4 +30,6 @@ Future<void> initializeDependencies() async {
   // ====== Bloc =====
   getIt.registerSingleton<AppBloc>(
       AppBloc(authenticationRepository: getIt<AuthenticationRepository>()));
+  getIt.registerSingleton<StockOverviewBloc>(
+      StockOverviewBloc(getIt<ProductRepository>()));
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vstock/viewmodels/app/app_bloc.dart';
-import 'package:vstock/views/stock/stock_page.dart';
+import 'package:vstock/views/stock/stock_overview/stock_overview_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -122,10 +122,10 @@ class _MenuWidgetState extends State<MenuWidget> {
   ];
 
   final List<Widget> pages = [
-    StockPage(),
-    StockPage(),
-    StockPage(),
-    StockPage(),
+    StockOverviewPage(),
+    StockOverviewPage(),
+    StockOverviewPage(),
+    StockOverviewPage(),
   ];
 
   @override
